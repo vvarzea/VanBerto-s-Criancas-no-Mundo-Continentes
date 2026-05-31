@@ -31,6 +31,7 @@ header h1{font-family:'Fredoka One',cursive;font-size:clamp(.9rem,2.8vw,1.45rem)
 .hdr-lvl-btn:hover{transform:translateY(-1px);}
 .score-bar{display:flex;align-items:center;gap:.6rem;background:rgba(255,215,0,.07);border-radius:50px;padding:.2rem .85rem;border:1.5px solid rgba(255,215,0,.22);font-family:'Nunito',sans-serif;font-size:.85rem;color:rgba(255,255,255,.6);}
 .score-num{font-size:.95rem;color:#34d399;}.score-err{color:#ff6b6b;}
+.hdr-player-name{font-family:'Nunito',sans-serif;font-size:.78rem;font-weight:900;color:#7ee8ff;background:rgba(126,232,255,.1);border:1.5px solid rgba(126,232,255,.35);border-radius:50px;padding:.18rem .7rem;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:none;}
 main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8rem .5rem 8rem;position:relative;z-index:1;}
 .overall-bar-wrap{width:100%;max-width:840px;background:rgba(255,215,0,.06);border-radius:50px;border:1.5px solid rgba(255,215,0,.2);padding:.32rem .85rem;display:flex;align-items:center;gap:.65rem;}
 .overall-label{font-family:'Nunito',sans-serif;font-size:.75rem;color:rgba(255,215,0,.65);white-space:nowrap;}
@@ -55,9 +56,14 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
 .cur-card{display:flex;align-items:center;gap:.8rem;padding:.75rem .9rem;border-radius:16px;border:1.5px solid rgba(255,255,255,.1);background:rgba(0,0,0,.25);margin-bottom:.5rem;cursor:pointer;transition:all .2s;}
 .cur-card:hover{background:rgba(255,215,0,.07);border-color:rgba(255,215,0,.28);transform:translateX(3px);}
 .cur-card.playing{background:rgba(126,232,255,.07);border-color:rgba(126,232,255,.35);box-shadow:0 0 12px rgba(126,232,255,.1);}
-.cur-flag-wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:.28rem;}
-.cur-flag{width:4.5rem;height:3rem;background-size:contain;background-position:center;background-repeat:no-repeat;background-color:rgba(255,255,255,.05);border-radius:8px;border:1.5px solid rgba(255,255,255,.18);box-shadow:0 2px 10px rgba(0,0,0,.5);}
-.cur-flag.animal{width:4.5rem;height:4.5rem;border-radius:10px;border:1.5px solid rgba(126,232,255,.35);background-size:cover;background-repeat:no-repeat;background-position:center;}
+.cur-flag-wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:.28rem;position:relative;}
+.cur-flag{width:4.5rem;height:3rem;background-size:contain;background-position:center;background-repeat:no-repeat;background-color:rgba(255,255,255,.05);border-radius:8px;border:1.5px solid rgba(255,255,255,.18);box-shadow:0 2px 10px rgba(0,0,0,.5);cursor:zoom-in;transition:border-color .2s;}
+.cur-flag:hover{border-color:rgba(255,215,0,.7);}
+.cur-flag.animal{width:4.5rem;height:4.5rem;border-radius:10px;border:1.5px solid rgba(126,232,255,.35);background-size:cover;background-repeat:no-repeat;background-position:center;cursor:zoom-in;}
+.cur-flag.animal:hover{border-color:rgba(126,232,255,.8);}
+/* Preview flutuante */
+#cur-img-preview{position:fixed;z-index:9999;pointer-events:none;display:none;border-radius:14px;box-shadow:0 0 0 3px rgba(255,215,0,.7),0 12px 48px rgba(0,0,0,.85);transition:opacity .18s;opacity:0;background-size:contain;background-repeat:no-repeat;background-position:center;background-color:rgba(20,8,40,.95);}
+#cur-img-preview.show{display:block;opacity:1;}
 .cur-code{font-family:'Nunito',sans-serif;font-size:.52rem;color:rgba(255,255,255,.3);letter-spacing:.5px;text-transform:uppercase;}
 .cur-info{flex:1;min-width:0;}
 .cur-name{font-family:'Nunito',sans-serif;font-size:.95rem;color:#ffd700;margin-bottom:.1rem;line-height:1.2;}
@@ -296,6 +302,7 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
   <div class="header-bottom">
     <button onclick="goToLevelScreen()" class="hdr-home-btn">🏠</button>
     <span id="level-badge" style="font-family:'Nunito',sans-serif;font-size:.68rem;padding:.2rem .7rem;border-radius:20px;border:1.5px solid rgba(78,203,113,.4);color:#4ecb71;background:rgba(78,203,113,.12);">⭐ Fácil</span>
+    <span id="hdr-player-name" class="hdr-player-name"></span>
     <div class="score-bar">
       <span>✅ <span class="score-num" id="score-ok">0</span>/<span id="score-total">36</span></span>
       <span>❌ <span class="score-num score-err" id="score-err">0</span></span>
@@ -406,6 +413,7 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
 </div>
 
 <!-- Painel de Curiosidades -->
+<div id="cur-img-preview"></div>
 <div id="cur-dim" onclick="closeCuriosidades()"></div>
 <div id="cur-panel">
   <div class="cur-header">
@@ -981,6 +989,11 @@ function startLevel(level){
   currentLevel=level;
   document.getElementById('startScreen').classList.remove('active');
   document.querySelector('header').style.display='';
+  // Mostrar nome do aluno no header
+  const pName=(document.getElementById('playerNameInput').value||'').trim();
+  const hdrName=document.getElementById('hdr-player-name');
+  if(pName){hdrName.textContent='👤 '+pName;hdrName.style.display='inline-block';}
+  else{hdrName.style.display='none';}
   // Show only relevant zones
   document.querySelectorAll('.cont-zone').forEach(z=>{
     const show = getActiveCont().includes(z.dataset.cont);
@@ -1009,13 +1022,13 @@ function startLevel(level){
   badge.style.borderColor=badges[level].border;
   badge.style.color=badges[level].color;
   // Saudação personalizada
-  const pName=(document.getElementById('playerNameInput').value||'').trim();
   setTimeout(()=>bub(pName ? 'Olá, ' + pName + '! Bom jogo! 🗺️' : 'Bom jogo! Arrasta os cartões! 🗺️', false), 600);
 }
 
 function goToLevelScreen(){
   document.getElementById('startScreen').classList.add('active');
   document.querySelector('header').style.display='none';
+  document.getElementById('hdr-player-name').style.display='none';
 }
 
 function shuffle(arr){return[...arr].sort(()=>Math.random()-.5);}
@@ -1195,6 +1208,56 @@ function closeSlide(){
   document.getElementById('bonus-card-wrap').classList.remove('show');
   slideCards=[];
 }
+
+/* ══ PREVIEW DE IMAGEM NAS CURIOSIDADES ══ */
+(function(){
+  const prev = document.getElementById('cur-img-preview');
+  let hideT = null;
+
+  function showPreview(el, e){
+    const bg = el.style.backgroundImage;
+    if(!bg || bg==='none') return;
+    const isAnimal = el.classList.contains('animal');
+    const size = isAnimal ? '180px' : '220px';
+    const h    = isAnimal ? '180px' : '140px';
+    prev.style.width  = size;
+    prev.style.height = h;
+    prev.style.backgroundImage = bg;
+    prev.style.backgroundSize = isAnimal ? 'cover' : 'contain';
+    prev.style.borderColor = isAnimal ? 'rgba(126,232,255,.8)' : 'rgba(255,215,0,.8)';
+    positionPreview(e);
+    clearTimeout(hideT);
+    prev.classList.add('show');
+  }
+
+  function positionPreview(e){
+    const pw = parseInt(prev.style.width)||200;
+    const ph = parseInt(prev.style.height)||150;
+    const margin = 16;
+    let x = e.clientX + 20;
+    let y = e.clientY - ph/2;
+    if(x + pw > window.innerWidth - margin)  x = e.clientX - pw - 20;
+    if(y < margin)                            y = margin;
+    if(y + ph > window.innerHeight - margin)  y = window.innerHeight - ph - margin;
+    prev.style.left = x + 'px';
+    prev.style.top  = y + 'px';
+  }
+
+  function hidePreview(){
+    hideT = setTimeout(()=>{ prev.classList.remove('show'); }, 80);
+  }
+
+  document.addEventListener('mouseover', e=>{
+    const flag = e.target.closest('.cur-flag');
+    if(flag) showPreview(flag, e);
+  });
+  document.addEventListener('mousemove', e=>{
+    if(prev.classList.contains('show')) positionPreview(e);
+  });
+  document.addEventListener('mouseout', e=>{
+    if(e.target.closest('.cur-flag')) hidePreview();
+  });
+})();
 
 window.addEventListener('load',()=>{
   document.querySelector('header').style.display='none';
