@@ -17,6 +17,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 header{background:linear-gradient(160deg,rgba(18,4,36,.97),rgba(8,2,22,.98));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:2px solid rgba(255,107,53,.4);padding:.48rem .8rem .42rem;text-align:center;position:sticky;top:0;z-index:200;box-shadow:0 4px 32px rgba(0,0,0,.65),0 0 0 1px rgba(255,215,0,.08);}
 .hdr-home-btn{font-family:'Nunito',sans-serif;font-size:.9rem;padding:.2rem .55rem;border-radius:20px;border:1.5px solid rgba(255,215,0,.4);background:rgba(255,215,0,.08);color:rgba(255,215,0,.9);cursor:pointer;transition:all .18s;white-space:nowrap;}
 .hdr-home-btn:hover{background:rgba(255,215,0,.2);}
+.hdr-fs-btn{font-family:'Nunito',sans-serif;font-size:.9rem;padding:.2rem .55rem;border-radius:20px;border:1.5px solid rgba(126,232,255,.4);background:rgba(126,232,255,.08);color:rgba(126,232,255,.9);cursor:pointer;transition:all .18s;white-space:nowrap;line-height:1;}
+.hdr-fs-btn:hover{background:rgba(126,232,255,.2);}
 header h1{font-family:'Fredoka One',cursive;font-size:clamp(.9rem,2.8vw,1.45rem);color:#FFD700;letter-spacing:.3px;margin-bottom:.28rem;line-height:1.2;}
 @keyframes titleShimmer{0%{background-position:0% center}100%{background-position:300% center}}
 .header-bottom{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap;}
@@ -286,6 +288,7 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
       <span>✅ <span class="score-num" id="score-ok">0</span>/<span id="score-total">36</span></span>
       <span>❌ <span class="score-num score-err" id="score-err">0</span></span>
     </div>
+    <button onclick="toggleFullscreen()" class="hdr-fs-btn" id="fs-btn" title="Ecrã todo">⛶</button>
   </div>
 </header>
 
@@ -1240,6 +1243,45 @@ function closeSlide(){
     if(e.target.closest('.cur-flag')) hidePreview();
   });
 })();
+
+/* ══ ECRÃ TODO (FULLSCREEN) ══ */
+function toggleFullscreen(){
+  const btn = document.getElementById('fs-btn');
+  if(!document.fullscreenElement && !document.webkitFullscreenElement){
+    const el = document.documentElement;
+    if(el.requestFullscreen) el.requestFullscreen();
+    else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    btn.textContent = '✕';
+    btn.title = 'Sair do ecrã todo';
+  } else {
+    if(document.exitFullscreen) document.exitFullscreen();
+    else if(document.webkitExitFullscreen) document.webkitExitFullscreen();
+    btn.textContent = '⛶';
+    btn.title = 'Ecrã todo';
+  }
+}
+document.addEventListener('fullscreenchange', ()=>{
+  const btn = document.getElementById('fs-btn');
+  if(!btn) return;
+  if(document.fullscreenElement){
+    btn.textContent = '✕';
+    btn.title = 'Sair do ecrã todo';
+  } else {
+    btn.textContent = '⛶';
+    btn.title = 'Ecrã todo';
+  }
+});
+document.addEventListener('webkitfullscreenchange', ()=>{
+  const btn = document.getElementById('fs-btn');
+  if(!btn) return;
+  if(document.webkitFullscreenElement){
+    btn.textContent = '✕';
+    btn.title = 'Sair do ecrã todo';
+  } else {
+    btn.textContent = '⛶';
+    btn.title = 'Ecrã todo';
+  }
+});
 
 window.addEventListener('load',()=>{
   document.querySelector('header').style.display='none';
