@@ -140,7 +140,7 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
 .bonus-btn:hover{transform:translateY(-2px);}
 .bonus-dim{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:699;display:none;}
 .bonus-dim.show{display:block;}
-.robot-wrap{position:fixed;bottom:1rem;right:.8rem;z-index:300;display:flex;flex-direction:column;align-items:center;gap:0;}
+.robot-wrap{position:fixed;bottom:1rem;right:.8rem;z-index:1100;display:flex;flex-direction:column;align-items:center;gap:0;}
 .bubble{background:linear-gradient(135deg,rgba(40,10,60,.97),rgba(20,5,35,.97));border:2px solid rgba(255,215,0,.5);border-radius:18px;padding:9px 12px 8px;box-shadow:0 0 0 1px rgba(255,107,53,.22),4px 4px 0 rgba(0,0,0,.5),0 0 16px rgba(255,107,53,.18);font-family:'Nunito',sans-serif;font-size:clamp(.7rem,1.9vw,.86rem);color:#FFD700;max-width:172px;min-width:118px;text-align:center;pointer-events:none;position:relative;opacity:0;transform:translateY(8px) scale(.88);transition:opacity .38s,transform .38s cubic-bezier(.34,1.56,.64,1);margin-bottom:6px;}
 .bubble::after{content:"";position:absolute;bottom:-13px;left:50%;transform:translateX(-50%);border-left:8px solid transparent;border-right:8px solid transparent;border-top:13px solid rgba(255,215,0,.5);}
 .bubble::before{content:"";position:absolute;bottom:-9px;left:50%;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-top:10px solid rgba(26,8,40,.97);z-index:1;}
@@ -244,27 +244,6 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
 <!-- ═══ ECRÃ INICIAL ═══ -->
 <div id="startScreen" class="start-screen active">
   <div class="modal-card">
-    <div class="modal-robot-row">
-      <svg class="modal-robot" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="sbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e5f2ff"/><stop offset="100%" stop-color="#bfdbfe"/></linearGradient>
-          <linearGradient id="svg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#38bdf8"/></linearGradient>
-        </defs>
-        <circle cx="40" cy="40" r="34" fill="rgba(147,197,253,0.28)"/>
-        <rect x="18" y="30" width="44" height="32" rx="14" fill="url(#sbg)"/>
-        <circle cx="40" cy="46" r="7" fill="#9ca3af"/>
-        <rect x="22" y="10" width="36" height="26" rx="13" fill="url(#sbg)"/>
-        <rect x="26" y="15" width="28" height="16" rx="8" fill="url(#svg2)"/>
-        <rect class="modal-eyelid" x="26" y="15" width="28" height="16" rx="8" fill="#e5f2ff" opacity="0.9"/>
-        <circle cx="33" cy="23" r="2.5" fill="#0f172a"/><circle cx="47" cy="23" r="2.5" fill="#0f172a"/>
-        <circle cx="34.2" cy="21.5" r="1" fill="white" opacity="0.8"/><circle cx="48.2" cy="21.5" r="1" fill="white" opacity="0.8"/>
-        <line x1="40" y1="10" x2="40" y2="4" stroke="#38bdf8" stroke-width="2"/><circle cx="40" cy="3" r="2.5" fill="#38bdf8"/>
-        <rect x="12" y="34" width="6" height="20" rx="3" fill="#e5e7eb"/>
-        <rect class="modal-robot-arm" x="62" y="34" width="6" height="20" rx="3" fill="#e5e7eb"/>
-        <rect x="22" y="58" width="12" height="8" rx="3" fill="#1f2937"/><rect x="46" y="58" width="12" height="8" rx="3" fill="#1f2937"/>
-      </svg>
-      <div class="modal-bubble-box">Olá! Arrasta cada país para o seu continente! 🗺️</div>
-    </div>
     <div class="modal-title">🗺️ Explora o Mundo</div>
     <div class="modal-sub">Escolhe o nível de dificuldade!</div>
     <div class="level-bar">
@@ -1066,6 +1045,9 @@ function init(){
 
 document.getElementById('btn-replay').addEventListener('click',()=>{goToLevelScreen();});
 document.getElementById('robot-svg').addEventListener('click',()=>{ensureAudio();bub(IDLE[~~(Math.random()*IDLE.length)],true);});
+
+// Mensagem de boas-vindas ao iniciar
+setTimeout(()=>bub('Arrasta cada país para o seu continente! 🗺️', false), 700);
 
 /* ══ PAINEL CURIOSIDADES ══ */
 const CONT_LABELS={europa:'🌍 Europa',africa:'🌍 África',asia:'🌏 Ásia',america:'🌎 América',oceania:'🌏 Oceania',antartica:'❄️ Antártida'};
