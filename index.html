@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0074)https://responsive-game-fix.preview.emergentagent.com/downloads/index.html -->
+<html lang="pt-PT" style="zoom: 1.17685;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Explora o Mundo e os seus Continentes 🌍</title>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="./Explora o Mundo e os seus Continentes 🌍_files/css2" rel="stylesheet">
 <style>
 :root{--orange:#ff6b35;--gold:#FFD700;--cyan:#7ee8ff;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -249,14 +249,14 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
     <div class="modal-title">🗺️ Explora o Mundo</div>
     <div class="modal-sub">Escolhe o nível de dificuldade!</div>
     <div class="level-bar">
-      <button class="lvl-btn easy active" onclick="selectLevel('easy')">⭐ Fácil</button>
-      <button class="lvl-btn medium" onclick="selectLevel('medium')">⭐⭐ Médio</button>
-      <button class="lvl-btn hard" onclick="selectLevel('hard')">⭐⭐⭐ Difícil</button>
+      <button class="lvl-btn easy active" onclick="selectLevel(&#39;easy&#39;)">⭐ Fácil</button>
+      <button class="lvl-btn medium" onclick="selectLevel(&#39;medium&#39;)">⭐⭐ Médio</button>
+      <button class="lvl-btn hard" onclick="selectLevel(&#39;hard&#39;)">⭐⭐⭐ Difícil</button>
     </div>
     <p class="lvl-desc" id="startLvlDesc">4 continentes · 12 cartões — perfeito para começar!</p>
     <div class="name-field-wrap">
       <label class="name-label" for="playerNameInput">🎈 O teu nome:</label>
-      <input class="name-input" id="playerNameInput" type="text" maxlength="30" placeholder="Escreve o teu nome..." autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')startLevel(selectedLevel)">
+      <input class="name-input" id="playerNameInput" type="text" maxlength="30" placeholder="Escreve o teu nome..." autocomplete="off" spellcheck="false" onkeydown="if(event.key===&#39;Enter&#39;)startLevel(selectedLevel)">
     </div>
     <div class="row">
       <button class="btn primary" onclick="startLevel(selectedLevel)">▶ Começar a jogar!</button>
@@ -269,7 +269,7 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
   </div>
 </div>
 
-<canvas id="confetti"></canvas>
+<canvas id="confetti" width="2560" height="1271"></canvas>
 <div class="floater" style="top:6%;animation-duration:40s;animation-delay:-5s">🌍</div>
 <div class="floater" style="top:22%;font-size:2rem;animation-duration:46s;animation-delay:-20s">🎈</div>
 <div class="floater" style="top:9%;font-size:2.6rem;animation-duration:58s;animation-delay:-32s">🎉</div>
@@ -278,11 +278,11 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
 <div class="floater" style="top:72%;font-size:2rem;animation-duration:54s;animation-delay:-37s">✨</div>
 <div class="floater" style="top:16%;font-size:1.5rem;animation-duration:63s;animation-delay:-9s">🎊</div>
 
-<header>
+<header style="display: none;">
   <h1>🗺️ Explora o Mundo e os seus Continentes</h1>
   <div class="header-bottom">
     <button onclick="goToLevelScreen()" class="hdr-home-btn">🏠</button>
-    <span id="level-badge" style="font-family:'Nunito',sans-serif;font-size:.68rem;padding:.2rem .7rem;border-radius:20px;border:1.5px solid rgba(78,203,113,.4);color:#4ecb71;background:rgba(78,203,113,.12);">⭐ Fácil</span>
+    <span id="level-badge" style="font-family:&#39;Nunito&#39;,sans-serif;font-size:.68rem;padding:.2rem .7rem;border-radius:20px;border:1.5px solid rgba(78,203,113,.4);color:#4ecb71;background:rgba(78,203,113,.12);">⭐ Fácil</span>
     <span id="hdr-player-name" class="hdr-player-name"></span>
     <div class="score-bar">
       <span>✅ <span class="score-num" id="score-ok">0</span>/<span id="score-total">36</span></span>
@@ -341,24 +341,24 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
 
 <!-- Robot -->
 <div class="robot-wrap">
-  <div class="bubble" id="bubble">Olá! 😊</div>
-  <svg id="robot-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <div class="bubble show" id="bubble">Qual animal vive na Antártida? ❄️</div>
+  <svg id="robot-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="bounce">
     <defs>
-      <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e5f2ff"/><stop offset="100%" stop-color="#bfdbfe"/></linearGradient>
-      <linearGradient id="visorGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#38bdf8"/></linearGradient>
+      <lineargradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e5f2ff"></stop><stop offset="100%" stop-color="#bfdbfe"></stop></lineargradient>
+      <lineargradient id="visorGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22d3ee"></stop><stop offset="100%" stop-color="#38bdf8"></stop></lineargradient>
     </defs>
-    <circle cx="40" cy="40" r="34" fill="rgba(56,189,248,0.25)"/>
-    <rect x="18" y="30" width="44" height="32" rx="14" fill="url(#bodyGrad)"/>
-    <circle cx="40" cy="46" r="7" fill="#9ca3af"/>
-    <rect x="22" y="10" width="36" height="26" rx="13" fill="url(#bodyGrad)"/>
-    <rect x="26" y="15" width="28" height="16" rx="8" fill="url(#visorGrad)"/>
-    <rect class="vb-eyelid" x="26" y="15" width="28" height="16" rx="8" fill="#e5f2ff" opacity="0.9"/>
-    <circle cx="33" cy="23" r="2.5" fill="#0f172a"/><circle cx="47" cy="23" r="2.5" fill="#0f172a"/>
-    <circle cx="34.2" cy="21.5" r="1" fill="white" opacity="0.8"/><circle cx="48.2" cy="21.5" r="1" fill="white" opacity="0.8"/>
-    <line x1="40" y1="10" x2="40" y2="4" stroke="#38bdf8" stroke-width="2"/><circle cx="40" cy="3" r="2.5" fill="#38bdf8"/>
-    <rect x="12" y="34" width="6" height="20" rx="3" fill="#e5e7eb"/>
-    <rect id="vb-arm" x="62" y="34" width="6" height="20" rx="3" fill="#e5e7eb"/>
-    <rect x="22" y="58" width="12" height="8" rx="3" fill="#1f2937"/><rect x="46" y="58" width="12" height="8" rx="3" fill="#1f2937"/>
+    <circle cx="40" cy="40" r="34" fill="rgba(56,189,248,0.25)"></circle>
+    <rect x="18" y="30" width="44" height="32" rx="14" fill="url(#bodyGrad)"></rect>
+    <circle cx="40" cy="46" r="7" fill="#9ca3af"></circle>
+    <rect x="22" y="10" width="36" height="26" rx="13" fill="url(#bodyGrad)"></rect>
+    <rect x="26" y="15" width="28" height="16" rx="8" fill="url(#visorGrad)"></rect>
+    <rect class="vb-eyelid" x="26" y="15" width="28" height="16" rx="8" fill="#e5f2ff" opacity="0.9"></rect>
+    <circle cx="33" cy="23" r="2.5" fill="#0f172a"></circle><circle cx="47" cy="23" r="2.5" fill="#0f172a"></circle>
+    <circle cx="34.2" cy="21.5" r="1" fill="white" opacity="0.8"></circle><circle cx="48.2" cy="21.5" r="1" fill="white" opacity="0.8"></circle>
+    <line x1="40" y1="10" x2="40" y2="4" stroke="#38bdf8" stroke-width="2"></line><circle cx="40" cy="3" r="2.5" fill="#38bdf8"></circle>
+    <rect x="12" y="34" width="6" height="20" rx="3" fill="#e5e7eb"></rect>
+    <rect id="vb-arm" x="62" y="34" width="6" height="20" rx="3" fill="#e5e7eb"></rect>
+    <rect x="22" y="58" width="12" height="8" rx="3" fill="#1f2937"></rect><rect x="46" y="58" width="12" height="8" rx="3" fill="#1f2937"></rect>
   </svg>
 </div>
 
@@ -370,7 +370,7 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
   <div class="bonus-name" id="bonus-name"></div>
   <div class="bonus-label" id="bonus-label">🌍 Curiosidade!</div>
   <div class="bonus-frase" id="bonus-frase" style="font-size:.82rem;color:rgba(255,255,255,.85);margin-bottom:.9rem;line-height:1.5;"></div>
-  <button class="bonus-btn" id="bonus-btn" onclick="slideCards.length>0?slideNext():closeBonus()">Continuar! ▶</button>
+  <button class="bonus-btn" id="bonus-btn" onclick="slideCards.length&gt;0?slideNext():closeBonus()">Continuar! ▶</button>
 </div>
 
 <!-- Combo pop container -->
@@ -1290,5 +1290,49 @@ window.addEventListener('load',()=>{
   sched();
 });
 </script>
-</body>
-</html>
+
+<!-- ═══ PC RESPONSIVE SCALE SYSTEM (1920x1080 reference) ═══
+     Ajusta apenas em ecrãs de computador (pointer:fine).
+     NÃO altera comportamento em smartphone nem a lógica do jogo. -->
+<script>
+(function(){
+  var REF_W = 1920, REF_H = 1080;
+  var pcMQ = window.matchMedia('(pointer: fine)');
+
+  function isPC(){
+    // PC = ponteiro de precisão (rato/trackpad). Telemóveis têm pointer:coarse.
+    return pcMQ.matches;
+  }
+
+  function applyScale(){
+    var html = document.documentElement;
+    if(!isPC()){
+      // Em smartphone/tablet táctil: remover qualquer escala e deixar o CSS original tratar.
+      html.style.zoom = '';
+      return;
+    }
+    // Fórmula pedida: escala proporcional baseada na referência 1920x1080.
+    var scale = Math.min(window.innerWidth / REF_W, window.innerHeight / REF_H);
+    // Aplica zoom no elemento raiz: redimensiona proporcionalmente botões,
+    // imagens, texto e áreas clicáveis, mantendo position:fixed relativo à
+    // viewport e as coordenadas de eventos consistentes com getBoundingClientRect
+    // (a lógica de drag e o canvas de confettis continuam a funcionar tal como estão).
+    html.style.zoom = scale;
+  }
+
+  // Recalcula automaticamente sempre que a janela mudar de tamanho.
+  window.addEventListener('resize', applyScale);
+  window.addEventListener('orientationchange', applyScale);
+  // Reagir a mudanças entre rato e toque (ex.: ligar/desligar caneta num 2-em-1).
+  if(pcMQ.addEventListener) pcMQ.addEventListener('change', applyScale);
+  else if(pcMQ.addListener) pcMQ.addListener(applyScale);
+
+  // Aplicar já agora e novamente após o load (para garantir após fontes/imagens).
+  applyScale();
+  window.addEventListener('load', applyScale);
+})();
+</script>
+<script defer="" src="./Explora o Mundo e os seus Continentes 🌍_files/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;7f7b0fd8732c4326aae4b9d58d5c514a&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+</body></html>
