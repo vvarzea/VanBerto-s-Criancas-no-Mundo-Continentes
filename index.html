@@ -3,7 +3,7 @@
 <html lang="pt-PT" style="zoom: 1.17685;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Explora o Mundo e os seus Continentes 🌍</title>
+<title>VanBerto's — Crianças no Mundo 🌍</title>
 <link href="./Explora o Mundo e os seus Continentes 🌍_files/css2" rel="stylesheet">
 <style>
 :root{--orange:#ff6b35;--gold:#FFD700;--cyan:#7ee8ff;}
@@ -239,6 +239,125 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
 }
 @media(max-width:380px){.continents-grid{gap:.32rem;}.cont-zone{min-height:105px;}.card{padding:.38rem .3rem .32rem;}}
 @media(max-height:600px) and (orientation:landscape){.continents-grid{grid-template-columns:repeat(3,1fr);gap:.4rem;}.cont-zone{min-height:90px;padding:.3rem .3rem .4rem;}.cz-title{font-size:.7rem;}.card{min-width:52px;max-width:68px;}.card-flag-img{width:1.8rem;height:1.2rem;}.animal-flag{width:1.8rem;height:1.8rem;}main{gap:.4rem;padding:.4rem .35rem 5rem;}}
+
+/* cabeçalho do jogo */
+header{background:var(--sun)!important;border-bottom:3px solid var(--ink)!important;box-shadow:0 4px 0 var(--ink)!important;backdrop-filter:none!important;}
+header h1{color:var(--ink)!important;font-weight:700;}
+.hdr-home-btn,.hdr-fs-btn{background:#fff!important;border:2.5px solid var(--ink)!important;color:var(--ink)!important;box-shadow:0 2px 0 var(--ink);}
+.hdr-home-btn:hover,.hdr-fs-btn:hover{background:#fffbea!important;}
+#level-badge{background:#fff!important;border:2.5px solid var(--ink)!important;color:var(--ink)!important;font-weight:900;}
+.score-bar{background:#fff!important;border:2.5px solid var(--ink)!important;color:var(--ink)!important;box-shadow:0 2px 0 var(--ink);}
+.score-num{color:#0a8f64!important;}.score-err{color:#d93a3a!important;}
+.hdr-player-name{background:#fff!important;border:2.5px solid var(--ink)!important;color:var(--grape)!important;}
+/* ═══ Estética VanBerto's (igual à Central / Dia da Criança) ═══ */
+:root{--ink:#1e1b4b;--sun:#ffd23f;--coral:#ff6b6b;--mint:#2ee6a6;--sky:#4cc9f0;--grape:#7c3aed;--cream:#fff8e7;--soft:#4a4872;}
+html,body{background-color:var(--cream)!important;color:var(--ink);}
+body{background-image:radial-gradient(rgba(124,58,237,.24) 1.4px,transparent 1.6px)!important;background-size:22px 22px!important;}
+body::before{display:none!important;}
+.floater{opacity:.55;}
+/* progresso */
+.overall-bar-wrap{background:#fff;border:3px solid var(--ink);box-shadow:0 3px 0 var(--ink);}
+.overall-label{color:var(--ink);font-weight:800;}
+.overall-track{background:#ece8fb;border:2px solid var(--ink);height:12px;}
+.overall-fill{background:linear-gradient(90deg,var(--sky),var(--mint));}
+.overall-pct{color:var(--ink);font-weight:900;}
+/* continentes */
+.cz-europa{--zb:#dbeafe;--zc:#3b82f6}.cz-africa{--zb:#fef3c7;--zc:#f59e0b}.cz-asia{--zb:#fce7f3;--zc:#ec4899}
+.cz-america{--zb:#dcfce7;--zc:#22c55e}.cz-oceania{--zb:#cffafe;--zc:#06b6d4}.cz-antartica{--zb:#e7ecf3;--zc:#94a3b8}
+.cont-zone{background:var(--zb)!important;border:3px solid var(--ink)!important;box-shadow:0 5px 0 var(--ink);}
+.cz-title,.cz-europa .cz-title,.cz-africa .cz-title,.cz-asia .cz-title,.cz-america .cz-title,.cz-oceania .cz-title,.cz-antartica .cz-title{color:var(--ink)!important;font-weight:900;}
+.cz-count{color:var(--ink);opacity:.7;}
+.hz-progress{background:rgba(30,27,75,.12);border:1.5px solid var(--ink);height:8px;}
+.cz-europa .hz-progress-fill,.cz-africa .hz-progress-fill,.cz-asia .hz-progress-fill,.cz-america .hz-progress-fill,.cz-oceania .hz-progress-fill,.cz-antartica .hz-progress-fill{background:var(--zc);}
+.hz-cards{background:rgba(255,255,255,.65);border:2px dashed var(--zc);}
+.cont-zone.drag-over{box-shadow:0 0 0 4px var(--sun),0 5px 0 var(--ink);}
+.cont-zone.drag-over .hz-cards{background:#fff;border-color:var(--ink);}
+.placed-card{background:#fff;border:2px solid var(--ink);color:var(--ink);box-shadow:0 2px 0 var(--ink);}
+.placed-card .pc-name{opacity:1;font-weight:800;}
+/* banco e cartões */
+.bank-label{color:var(--grape);}
+.bank{background:#fff;border:3px solid var(--ink);box-shadow:0 5px 0 var(--ink);}
+.card{background:#fff;border:2.5px solid var(--ink);box-shadow:0 4px 0 var(--ink);color:var(--ink);}
+.card:hover{box-shadow:0 7px 0 var(--ink);}
+.card:active{box-shadow:0 2px 0 var(--ink);}
+.card.ghost{box-shadow:0 0 0 3px var(--sun),0 9px 0 var(--ink);}
+.card-name{color:var(--ink)!important;font-weight:800!important;}
+.card.animal{border-color:var(--ink)!important;background:#f3ecff;box-shadow:0 4px 0 var(--grape)!important;}
+.card.animal:hover{box-shadow:0 7px 0 var(--grape)!important;}
+.card.animal .card-name{color:var(--grape)!important;}
+.card-flag-img,.animal-flag,.cur-flag{background-color:#fff;border:2px solid var(--ink)!important;box-shadow:none;}
+/* combo */
+.combo-pop .combo-label{background:none;-webkit-text-fill-color:var(--ink);color:var(--ink);text-shadow:0 4px 0 var(--sun),0 -2px 0 #fff,2px 0 0 #fff,-2px 0 0 #fff;font-weight:900;}
+/* bónus */
+.bonus-dim{background:rgba(30,27,75,.55);}
+.bonus-card-wrap{background:#fff!important;border:3px solid var(--ink)!important;box-shadow:0 8px 0 var(--ink)!important;color:var(--ink);}
+.bonus-name{color:var(--ink);}
+.bonus-label{background:var(--sun);border:2px solid var(--ink);color:var(--ink);font-weight:900;}
+#bonus-frase{color:var(--soft)!important;font-weight:800;}
+.bonus-btn,.btn-replay{background:var(--mint);color:var(--ink);border:3px solid var(--ink);box-shadow:0 4px 0 var(--ink);font-weight:900;}
+.bonus-btn:hover,.btn-replay:hover{transform:none;filter:brightness(1.05);}
+.bonus-btn:active,.btn-replay:active{transform:translateY(4px);box-shadow:none;}
+/* robô e balão */
+.robot-wrap{gap:2px;}
+.bubble{background:#fff!important;border:3px solid var(--ink)!important;color:var(--ink)!important;box-shadow:0 3px 0 var(--ink)!important;font-weight:800;border-radius:16px;}
+.bubble::after{border-top-color:var(--ink)!important;}
+.bubble::before{border-top-color:#fff!important;}
+#robot-svg{filter:drop-shadow(0 4px 0 rgba(30,27,75,.35))!important;width:clamp(62px,10vw,96px);height:auto;aspect-ratio:1;}
+.robot-name{font:900 11px 'Nunito',sans-serif;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:999px;padding:0 8px;box-shadow:0 2px 0 var(--ink);}
+/* vitória */
+#win-overlay.show{background:rgba(30,27,75,.62);}
+.win-card{background:#fff!important;border:3px solid var(--ink)!important;box-shadow:0 8px 0 var(--ink)!important;color:var(--ink);}
+.win-title{background:none!important;-webkit-text-fill-color:var(--ink)!important;color:var(--ink)!important;text-shadow:0 3px 0 var(--sun);}
+.win-sub{color:var(--soft);}
+.win-player-name{color:var(--grape);}
+.win-pill{color:var(--ink)!important;border:2px solid var(--ink)!important;font-weight:800;}
+.win-pill.cz-europa{background:#dbeafe}.win-pill.cz-africa{background:#fef3c7}.win-pill.cz-asia{background:#fce7f3}
+.win-pill.cz-america{background:#dcfce7}.win-pill.cz-oceania{background:#cffafe}.win-pill.cz-antartica{background:#e7ecf3}
+.win-ant-note{background:#eef2f7;border:2px solid var(--ink);color:var(--ink);}
+.btn-menu{background:#fff;border:3px solid var(--ink);color:var(--ink);box-shadow:0 3px 0 var(--ink);font-weight:900;}
+/* ecrã inicial */
+.start-screen{background-color:var(--cream)!important;background-image:radial-gradient(rgba(124,58,237,.24) 1.4px,transparent 1.6px)!important;background-size:22px 22px!important;}
+.modal-card{background:#fff!important;border:3px solid var(--ink)!important;box-shadow:0 8px 0 var(--ink)!important;border-radius:22px;color:var(--ink);}
+.modal-title{background:none!important;-webkit-text-fill-color:currentColor!important;color:var(--ink)!important;animation:none!important;font-weight:700;}
+.modal-sub{color:var(--grape);font-weight:800;}
+.lvl-btn{background:#fff;color:var(--ink)!important;border:2.5px solid var(--ink)!important;box-shadow:0 3px 0 var(--ink);}
+.lvl-btn.easy.active{background:var(--mint);box-shadow:0 3px 0 var(--ink);color:var(--ink)!important;}
+.lvl-btn.medium.active{background:var(--sun);box-shadow:0 3px 0 var(--ink);color:var(--ink)!important;}
+.lvl-btn.hard.active{background:var(--coral);box-shadow:0 3px 0 var(--ink);color:var(--ink)!important;}
+.lvl-desc,.tiny{color:var(--soft);opacity:1;}
+.name-label{color:var(--ink);}
+.name-input{background:#fff;color:var(--ink);border:2.5px solid var(--ink);}
+.name-input::placeholder{color:#8a87ad;}
+.name-input:focus{border-color:var(--grape);box-shadow:0 0 0 3px rgba(124,58,237,.25);}
+.btn{background:#fff;color:var(--ink);border:3px solid var(--ink);box-shadow:0 4px 0 var(--ink);font-weight:900;}
+.btn:hover{transform:none;box-shadow:0 4px 0 var(--ink);filter:brightness(1.04);}
+.btn:active{transform:translateY(4px);box-shadow:none;}
+.btn.primary{background:var(--sun);color:var(--ink);border-color:var(--ink);box-shadow:0 4px 0 var(--ink);}
+.row .btn[onclick^="openCuriosidades"]{background:var(--sky)!important;border-color:var(--ink)!important;color:var(--ink)!important;}
+.signature{color:var(--soft);opacity:.85;}
+/* curiosidades */
+#cur-dim{background:rgba(30,27,75,.6);}
+#cur-panel{background:#fff!important;border:3px solid var(--ink)!important;box-shadow:0 8px 0 var(--ink)!important;color:var(--ink);}
+.cur-header{background:var(--sun)!important;border-bottom:3px solid var(--ink)!important;}
+.cur-title{background:none!important;-webkit-text-fill-color:var(--ink)!important;color:var(--ink)!important;font-weight:900;}
+.cur-close{background:#fff;border:2.5px solid var(--ink);color:var(--ink);box-shadow:0 2px 0 var(--ink);}
+.cur-close:hover{background:var(--coral);}
+.cur-filters{background:var(--cream);border-bottom:2px solid var(--ink);}
+.cur-filter{background:#fff;border:2px solid var(--ink);color:var(--ink);}
+.cur-filter:hover{background:#fffbea;color:var(--ink);border-color:var(--ink);}
+.cur-filter.active{background:var(--grape);color:#fff;border-color:var(--ink);box-shadow:0 2px 0 var(--ink);}
+.cur-card{background:#fff;border:2px solid var(--ink);box-shadow:0 3px 0 var(--ink);color:var(--ink);}
+.cur-card:hover{background:#fffbea;border-color:var(--ink);}
+.cur-card.playing{background:#e3f6fd;border-color:var(--ink);box-shadow:0 3px 0 var(--sky);}
+.cur-name{color:var(--ink);font-weight:900;}
+.cur-frase{color:var(--soft);}
+.cur-code{color:#7a77a3;}
+.cur-cont-tag{color:var(--ink)!important;border:1.5px solid var(--ink);}
+.cur-cont-tag.europa{background:#dbeafe}.cur-cont-tag.africa{background:#fef3c7}.cur-cont-tag.asia{background:#fce7f3}
+.cur-cont-tag.america{background:#dcfce7}.cur-cont-tag.oceania{background:#cffafe}.cur-cont-tag.antartica{background:#e7ecf3}
+.cur-play-btn{background:#fff;border:2px solid var(--ink);color:var(--ink);}
+.cur-play-btn:hover,.cur-play-btn.active{background:var(--sky);border-color:var(--ink);color:var(--ink);}
+#cur-img-preview{box-shadow:0 0 0 3px var(--ink),0 10px 0 var(--ink)!important;background:#fff;}
 </style>
 </head>
 <body>
@@ -342,24 +461,8 @@ main{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:.8r
 <!-- Robot -->
 <div class="robot-wrap">
   <div class="bubble show" id="bubble">Qual animal vive na Antártida? ❄️</div>
-  <svg id="robot-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="bounce">
-    <defs>
-      <lineargradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e5f2ff"></stop><stop offset="100%" stop-color="#bfdbfe"></stop></lineargradient>
-      <lineargradient id="visorGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22d3ee"></stop><stop offset="100%" stop-color="#38bdf8"></stop></lineargradient>
-    </defs>
-    <circle cx="40" cy="40" r="34" fill="rgba(56,189,248,0.25)"></circle>
-    <rect x="18" y="30" width="44" height="32" rx="14" fill="url(#bodyGrad)"></rect>
-    <circle cx="40" cy="46" r="7" fill="#9ca3af"></circle>
-    <rect x="22" y="10" width="36" height="26" rx="13" fill="url(#bodyGrad)"></rect>
-    <rect x="26" y="15" width="28" height="16" rx="8" fill="url(#visorGrad)"></rect>
-    <rect class="vb-eyelid" x="26" y="15" width="28" height="16" rx="8" fill="#e5f2ff" opacity="0.9"></rect>
-    <circle cx="33" cy="23" r="2.5" fill="#0f172a"></circle><circle cx="47" cy="23" r="2.5" fill="#0f172a"></circle>
-    <circle cx="34.2" cy="21.5" r="1" fill="white" opacity="0.8"></circle><circle cx="48.2" cy="21.5" r="1" fill="white" opacity="0.8"></circle>
-    <line x1="40" y1="10" x2="40" y2="4" stroke="#38bdf8" stroke-width="2"></line><circle cx="40" cy="3" r="2.5" fill="#38bdf8"></circle>
-    <rect x="12" y="34" width="6" height="20" rx="3" fill="#e5e7eb"></rect>
-    <rect id="vb-arm" x="62" y="34" width="6" height="20" rx="3" fill="#e5e7eb"></rect>
-    <rect x="22" y="58" width="12" height="8" rx="3" fill="#1f2937"></rect><rect x="46" y="58" width="12" height="8" rx="3" fill="#1f2937"></rect>
-  </svg>
+  <canvas id="robot-svg" class="bounce" width="96" height="96" role="button" tabindex="0" aria-label="VanBerto's — clica para falar"></canvas>
+  <div class="robot-name">VanBerto's</div>
 </div>
 
 <!-- Bonus card overlay -->
@@ -833,7 +936,7 @@ function dropG(cx,cy){
       src.style.opacity='1';
       src.classList.remove('wrong-shake');void src.offsetWidth;src.classList.add('wrong-shake');
       src.style.borderColor='#ef4444';
-      setTimeout(()=>{src.classList.remove('wrong-shake');src.style.borderColor='';},600);
+      {const _s=src;setTimeout(()=>{if(_s){_s.classList.remove('wrong-shake');_s.style.borderColor='';}},600);}
       scoreErr++;
       document.getElementById('score-err').textContent=scoreErr;
       targetZone.classList.add('wrong-flash');
@@ -1332,7 +1435,173 @@ window.addEventListener('load',()=>{
   window.addEventListener('load', applyScale);
 })();
 </script>
-<script defer="" src="./Explora o Mundo e os seus Continentes 🌍_files/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;7f7b0fd8732c4326aae4b9d58d5c514a&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
 
 
+
+<script>
+/* Robô VanBerto's (canvas) — o mesmo da Central */
+function rrVan(ctx,x,y,w,h,r){
+  const rr=Math.min(r,w/2,h/2);
+  ctx.beginPath();ctx.moveTo(x+rr,y);ctx.arcTo(x+w,y,x+w,y+h,rr);ctx.arcTo(x+w,y+h,x,y+h,rr);ctx.arcTo(x,y+h,x,y,rr);ctx.arcTo(x,y,x+w,y,rr);ctx.closePath();
+}
+function cfVan(ctx,x,y,r,color){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();}
+
+function drawVanBerto(ctx,blink,step,armsUp){
+  const w=96,h=96;
+  ctx.clearRect(0,0,w,h);
+  ctx.lineJoin="round"; ctx.lineCap="round";
+  ctx.save(); ctx.translate(0,6);
+  const NAVY="#16233e", NAVY2="#26365a", OUT="#101a30";
+  function white(x0,y0,x1,y1){const g=ctx.createLinearGradient(x0,y0,x1,y1);g.addColorStop(0,"#ffffff");g.addColorStop(0.55,"#e6edf7");g.addColorStop(1,"#b4c4dc");return g;}
+
+  const LIFT=8, STRIDE=3;
+  let lTop=70, rTop=70, lDX=0, rDX=0;
+  if(step===0){ lTop=70-LIFT; lDX=STRIDE; rDX=-STRIDE; }
+  else if(step===1){ rTop=70-LIFT; rDX=STRIDE; lDX=-STRIDE; }
+  function leg(cx,top){
+    rrVan(ctx,cx-5,top,10,11,4.5); ctx.fillStyle=white(cx-5,top,cx+5,top); ctx.fill();
+    ctx.lineWidth=2.6; ctx.strokeStyle=OUT; ctx.stroke();
+    const fy=top+9;
+    rrVan(ctx,cx-6.5,fy,13,9,4); ctx.fillStyle=NAVY; ctx.fill();
+    ctx.lineWidth=2.6; ctx.strokeStyle=OUT; ctx.stroke();
+    rrVan(ctx,cx-6.5,fy+2,13,2.4,1.2); ctx.fillStyle="rgba(255,255,255,0.85)"; ctx.fill();
+    cfVan(ctx,cx-2.5,fy+4.5,1.4,"rgba(255,255,255,0.5)");
+  }
+  leg(41+lDX,lTop); leg(55+rDX,rTop);
+
+  const ARM_SWING = 0.24;
+  const JUMP_RAISE = 2.9;
+  let lArmSwing = 0, rArmSwing = 0;
+  if(armsUp){ lArmSwing = JUMP_RAISE; rArmSwing = -JUMP_RAISE; }
+  else if(step===0){ lArmSwing=-ARM_SWING; rArmSwing=ARM_SWING; }
+  else if(step===1){ lArmSwing=ARM_SWING; rArmSwing=-ARM_SWING; }
+  function arm(sx,swing){
+    ctx.save();
+    const px=sx+4.5, py=52;
+    ctx.translate(px,py); ctx.rotate(swing); ctx.translate(-px,-py);
+    rrVan(ctx,sx,52,9,13,4.5); ctx.fillStyle=white(sx,52,sx+9,52); ctx.fill();
+    ctx.lineWidth=2.6; ctx.strokeStyle=OUT; ctx.stroke();
+    const hx=sx+4.5, hy=67;
+    cfVan(ctx,hx,hy,5,NAVY);
+    ctx.lineWidth=2.3; ctx.strokeStyle=OUT; ctx.beginPath(); ctx.arc(hx,hy,5,0,Math.PI*2); ctx.stroke();
+    cfVan(ctx,hx-2,hy+1.6,1.4,NAVY2); cfVan(ctx,hx+0.5,hy+2.4,1.4,NAVY2); cfVan(ctx,hx+2.5,hy+1.6,1.4,NAVY2);
+    ctx.restore();
+  }
+  arm(17,lArmSwing); arm(70,rArmSwing);
+
+  rrVan(ctx,26,44,44,32,15); ctx.fillStyle=white(28,46,68,46); ctx.fill();
+  ctx.save(); rrVan(ctx,26,44,44,32,15); ctx.clip();
+  const wg=ctx.createLinearGradient(0,64,0,76); wg.addColorStop(0,"rgba(22,35,62,0)"); wg.addColorStop(0.4,"#1c2c4c"); wg.addColorStop(1,"#142038");
+  ctx.fillStyle=wg; ctx.fillRect(26,62,44,16);
+  ctx.strokeStyle="rgba(16,26,48,0.6)"; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(28,64); ctx.lineTo(68,64); ctx.stroke();
+  ctx.fillStyle="rgba(255,255,255,0.5)"; ctx.beginPath(); ctx.ellipse(36,52,9,5.5,-0.5,0,Math.PI*2); ctx.fill();
+  ctx.restore();
+  ctx.lineWidth=3; ctx.strokeStyle=OUT; rrVan(ctx,26,44,44,32,15); ctx.stroke();
+
+  cfVan(ctx,48,56,8,NAVY);
+  ctx.lineWidth=2.5; ctx.strokeStyle=OUT; ctx.beginPath(); ctx.arc(48,56,8,0,Math.PI*2); ctx.stroke();
+  const dome=ctx.createRadialGradient(45.5,53.5,1,48,56,7); dome.addColorStop(0,"#aebccf"); dome.addColorStop(0.6,"#5a6a85"); dome.addColorStop(1,"#2b3a57");
+  ctx.fillStyle=dome; ctx.beginPath(); ctx.arc(48,56,5.7,0,Math.PI*2); ctx.fill();
+  cfVan(ctx,46,53.8,1.5,"rgba(255,255,255,0.85)");
+
+  function pod(cx){
+    cfVan(ctx,cx,32,6,NAVY);
+    ctx.lineWidth=2.3; ctx.strokeStyle=OUT; ctx.beginPath(); ctx.arc(cx,32,6,0,Math.PI*2); ctx.stroke();
+    cfVan(ctx,cx,32,2.8,NAVY2); cfVan(ctx,cx-0.8,31,1,"rgba(255,255,255,0.6)");
+  }
+  pod(25); pod(71);
+
+  ctx.fillStyle=NAVY; ctx.beginPath(); ctx.moveTo(45,16); ctx.lineTo(51,16); ctx.lineTo(49.2,8); ctx.lineTo(46.8,8); ctx.closePath(); ctx.fill();
+  const halo=ctx.createRadialGradient(48,5,1,48,5,11); halo.addColorStop(0,"rgba(90,200,255,0.55)"); halo.addColorStop(1,"rgba(90,200,255,0)");
+  ctx.fillStyle=halo; ctx.beginPath(); ctx.arc(48,5,11,0,Math.PI*2); ctx.fill();
+  const bg=ctx.createRadialGradient(46.3,3.5,0.5,48,5,5.5); bg.addColorStop(0,"#e6f7ff"); bg.addColorStop(0.4,"#48b4ff"); bg.addColorStop(1,"#1670d8");
+  ctx.fillStyle=bg; ctx.beginPath(); ctx.arc(48,5,5.5,0,Math.PI*2); ctx.fill();
+  cfVan(ctx,46.2,3.4,1.6,"#ffffff");
+
+  rrVan(ctx,26,14,44,34,17); ctx.fillStyle=white(28,15,68,15); ctx.fill();
+  ctx.lineWidth=3; ctx.strokeStyle=OUT; ctx.stroke();
+  ctx.save(); rrVan(ctx,26,14,44,34,17); ctx.clip();
+  ctx.fillStyle="rgba(255,255,255,0.6)"; ctx.beginPath(); ctx.ellipse(38,19,10,4,-0.5,0,Math.PI*2); ctx.fill(); ctx.restore();
+
+  rrVan(ctx,30,20,36,23,12); ctx.fillStyle=NAVY; ctx.fill();
+  rrVan(ctx,32.5,22,31,19,10);
+  const vg=ctx.createLinearGradient(0,22,0,41); vg.addColorStop(0,"#7fd4ff"); vg.addColorStop(0.5,"#2a9bf0"); vg.addColorStop(1,"#1366c6");
+  ctx.fillStyle=vg; ctx.fill();
+  ctx.save(); rrVan(ctx,32.5,22,31,19,10); ctx.clip();
+  ctx.fillStyle="rgba(255,255,255,0.45)"; ctx.beginPath(); ctx.ellipse(42,25,9,3.5,-0.4,0,Math.PI*2); ctx.fill(); ctx.restore();
+
+  if(!blink){
+    ctx.fillStyle="#0a0f1c";
+    ctx.beginPath(); ctx.ellipse(41,30,3.3,4,0,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(55,30,3.3,4,0,0,Math.PI*2); ctx.fill();
+    cfVan(ctx,42.3,28.4,1.5,"#fff"); cfVan(ctx,39.9,31,0.8,"#fff");
+    cfVan(ctx,56.3,28.4,1.5,"#fff"); cfVan(ctx,53.9,31,0.8,"#fff");
+  } else if(blink==="wink"){
+    ctx.fillStyle="#0a0f1c";
+    ctx.beginPath(); ctx.ellipse(41,30,3.3,4,0,0,Math.PI*2); ctx.fill();
+    cfVan(ctx,42.3,28.4,1.5,"#fff"); cfVan(ctx,39.9,31,0.8,"#fff");
+    ctx.lineWidth=3; ctx.strokeStyle="#0a0f1c"; ctx.lineCap="round";
+    ctx.beginPath(); ctx.arc(55,31,3.5,0.15*Math.PI,0.85*Math.PI); ctx.stroke();
+  } else if(blink==="happy"){
+    ctx.lineWidth=3.2; ctx.strokeStyle="#0a0f1c"; ctx.lineCap="round";
+    ctx.beginPath(); ctx.arc(41,31,3.9,0.10*Math.PI,0.90*Math.PI); ctx.stroke();
+    ctx.beginPath(); ctx.arc(55,31,3.9,0.10*Math.PI,0.90*Math.PI); ctx.stroke();
+    cfVan(ctx,33.5,35.5,3,"rgba(255,120,120,0.55)");
+    cfVan(ctx,62.5,35.5,3,"rgba(255,120,120,0.55)");
+  } else if(blink==="sad"){
+    ctx.strokeStyle="#0a0f1c"; ctx.lineWidth=2.3; ctx.lineCap="round";
+    ctx.beginPath(); ctx.moveTo(37,24); ctx.lineTo(44.5,27); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(59,24); ctx.lineTo(51.5,27); ctx.stroke();
+    ctx.fillStyle="#0a0f1c";
+    ctx.beginPath(); ctx.ellipse(41,32,2.8,3.1,0,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(55,32,2.8,3.1,0,0,Math.PI*2); ctx.fill();
+    cfVan(ctx,42,30.7,1.1,"#fff"); cfVan(ctx,56,30.7,1.1,"#fff");
+    ctx.fillStyle="#6fd0ff";
+    ctx.beginPath();
+    ctx.moveTo(56,35); ctx.quadraticCurveTo(59,40,56,43.5); ctx.quadraticCurveTo(53,40,56,35);
+    ctx.closePath(); ctx.fill();
+  } else {
+    ctx.lineWidth=3; ctx.strokeStyle="#0a0f1c";
+    ctx.beginPath(); ctx.arc(41,31,3.5,0.15*Math.PI,0.85*Math.PI); ctx.stroke();
+    ctx.beginPath(); ctx.arc(55,31,3.5,0.15*Math.PI,0.85*Math.PI); ctx.stroke();
+  }
+  ctx.fillStyle="#0a0f1c";
+  if(blink==="wink"){
+    ctx.beginPath(); ctx.ellipse(48,36,5.6,3.6,0,0,Math.PI); ctx.fill();
+    ctx.fillStyle="#ff7a7a";
+    ctx.beginPath(); ctx.ellipse(48,37.6,2.9,1.7,0,0,Math.PI); ctx.fill();
+  } else if(blink==="happy"){
+    ctx.beginPath(); ctx.ellipse(48,36,6.2,4.2,0,0,Math.PI); ctx.fill();
+    ctx.fillStyle="#ff7a7a";
+    ctx.beginPath(); ctx.ellipse(48,38,3.2,1.9,0,0,Math.PI); ctx.fill();
+  } else if(blink==="sad"){
+    ctx.strokeStyle="#0a0f1c"; ctx.lineWidth=2.4; ctx.lineCap="round";
+    ctx.beginPath(); ctx.arc(48,40,4.2,Math.PI,Math.PI*2); ctx.stroke();
+  } else {
+    ctx.beginPath(); ctx.ellipse(48,36,4.6,3.2,0,0,Math.PI); ctx.fill();
+    ctx.fillStyle="#ff7a7a";
+    ctx.beginPath(); ctx.ellipse(48,37.4,2.4,1.5,0,0,Math.PI); ctx.fill();
+  }
+  ctx.restore();
+}
+
+
+(function(){
+  const cv=document.getElementById('robot-svg'),cx=cv.getContext('2d');
+  const DPR=Math.min(window.devicePixelRatio||1,3);
+  cv.width=96*DPR;cv.height=96*DPR;cx.scale(DPR,DPR);
+  const RED=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let busy=false;
+  const frame=(bl,st,up)=>drawVanBerto(cx,bl,st,up);
+  frame(false,-1,false);
+  function blink(){if(busy)return;frame(true,-1,false);setTimeout(()=>{if(!busy)frame(false,-1,false);},180);}
+  function walk(){if(busy)return;busy=true;let i=0;const iv=setInterval(()=>{frame(false,i%2?1:0,false);if(++i>=6){clearInterval(iv);frame(false,-1,false);busy=false;}},170);}
+  function happy(){if(busy)return;busy=true;frame('happy',-1,true);setTimeout(()=>{frame(false,-1,false);busy=false;},700);}
+  setInterval(()=>{if(busy||document.hidden||RED)return;const r=Math.random();r<.2?happy():r<.5?walk():blink();},3600);
+  cv.addEventListener('click',happy);
+  cv.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();happy();ensureAudio();bub(IDLE[~~(Math.random()*IDLE.length)],true);}});
+  window.vbHappy=happy;
+  const _bub=window.bub;window.bub=function(m,sp){_bub(m,sp);happy();};
+})();
+</script>
 </body></html>
